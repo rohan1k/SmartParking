@@ -1,0 +1,105 @@
+
+<html>
+<body background="slot.jpg" background-repeat="no-repeat">
+  <title>Leanovate Parking Solution</title>
+  <img src="index.jpg" align="right"><br> 
+  <style type="text/css">
+   p {
+    font-size: 450%;
+    
+
+} 
+
+  </style>
+<p " align="center" style="font-family:'Garamond'"><b>Leanovate Parking Solution</b></p>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<script type="text/javascript">
+    var config = {
+            apiKey: "AIzaSyAfzBPAR9vj-TUROGhQPQobKttK5e1TO0M",
+            authDomain: "parkinglot-f26d7.firebaseapp.com",
+            databaseURL: "https://parkinglot-f26d7.firebaseio.com/",
+            storageBucket: "parkinglot-f26d7.appspot.com"
+            };
+firebase.initializeApp(config);
+  const DBref=firebase.database().ref();
+  //<!-- .child("Slot1") -->
+  DBref.on('value',gotData, errData);
+  function gotData(data)
+  {
+    var values=data.val();
+      console.log(values);
+      a=values["Slot1"];
+      a=a.toString(); 
+      b="Filled"//b.toString();
+      c="Filled"//c.toString();
+      d="Filled"//d.toString();
+      e="Filled"//e.toString();
+      //alert(a);
+      if(a=="Vacant")
+      {
+        document.getElementById("td1").style.backgroundColor = "green";
+      }  
+      else
+      {
+        document.getElementById("td1").style.backgroundColor = "red";
+
+      }
+      if(b=="Vacant")
+      {
+        document.getElementById("td2").style.backgroundColor = "green";
+      }  
+      else
+      {
+        document.getElementById("td2").style.backgroundColor = "red";
+
+      }
+      if(c=="Vacant")
+      {
+        document.getElementById("td3").style.backgroundColor = "green";
+      }  
+      else
+      {
+        document.getElementById("td3").style.backgroundColor = "red";
+
+      }
+      if(d=="Vacant")
+      {
+        document.getElementById("td4").style.backgroundColor = "green";
+      }  
+      else
+      {
+        document.getElementById("td4").style.backgroundColor = "red";
+
+      }
+      if(e=="Vacant")
+      {
+        document.getElementById("td5").style.backgroundColor = "green";
+      }  
+      else
+      {
+        document.getElementById("td5").style.backgroundColor = "red";
+
+      }
+      
+
+      
+  }
+  function errData(err)
+  {
+    console.log("error !!!!");
+    console.log(err);
+  }
+  </script>
+
+<table width="50%" cellpadding="10pt" border="10"  align="center" >
+   <tr bgcolor="#ffffff"><td align="middle" style=" font-size: 250%;">Slot 1</td><td id="td1" width="80%">&nbsp<p id="sl1"></p></td></tr>
+   <tr bgcolor="#ffffff"><td align="middle" style=" font-size: 250%;">Slot 2</td><td id="td2" width="80%">&nbsp<p id="sl2"></p></td></tr>
+   <tr bgcolor="#ffffff"><td align="middle" style=" font-size: 250%;">Slot 3</td><td id="td3" width="80%">&nbsp<p id="sl3"></p> </td></tr>
+   <tr bgcolor="#ffffff"><td align="middle" style=" font-size: 250%;">Slot 4</td><td id="td4" width="80%">&nbsp<p id="sl4"></p></td></tr>
+   <tr bgcolor="#ffffff"><td align="middle" style=" font-size: 250%;">Slot 5</td><td id="td5" width="80%">&nbsp<p id="sl5"></p></td></tr>
+</table></br></br></br>
+
+
+</body>
+  </html>
